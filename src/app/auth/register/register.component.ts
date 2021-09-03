@@ -47,7 +47,7 @@ export class RegisterComponent implements OnInit {
         (res)=>{
           let token = JSON.parse(JSON.stringify(res));
           localStorage.setItem('token',token.token);
-          this.router.navigate(['/auth/login'], { queryParams: { registered: 'success' } });
+          this.router.navigate(['/profile'], { queryParams: { registered: 'success' } });
         },
         (err)=>{
           if(err.error=='Email already exists'){
