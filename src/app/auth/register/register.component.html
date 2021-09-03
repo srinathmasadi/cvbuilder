@@ -1,0 +1,159 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-5">
+      <h1 class="page-title">User Registration</h1>
+      <form #registerForm="ngForm">
+        <div *ngIf="errors.length > 0" class="alert alert-danger">
+          <ul *ngFor="let error of errors">
+            <li>{{ error }}</li>
+          </ul>
+        </div>
+
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="formData.firstName"
+            name="firstName"
+            #firstName="ngModel"
+            required
+          />
+        </div>
+        <div
+          *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)"
+          class="alert alert-danger"
+        >
+          <div *ngIf="firstName.errors?.required">First Name is required</div>
+        </div>
+
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="formData.lastName"
+            name="lastName"
+            #lastName="ngModel"
+            required
+          />
+        </div>
+        <div
+          *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)"
+          class="alert alert-danger"
+        >
+          <div *ngIf="lastName.errors?.required">Last Name is required</div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            [(ngModel)]="formData.email"
+            name="email"
+            #email="ngModel"
+            required
+          />
+        </div>
+        <div
+          *ngIf="email.invalid && (email.dirty || email.touched)"
+          class="alert alert-danger"
+        >
+          <div *ngIf="email.errors?.required">Email is required</div>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input
+            type="phone"
+            class="form-control"
+            [(ngModel)]="formData.phone"
+            name="phone"
+            #phone="ngModel"
+            required
+          />
+        </div>
+        <div
+          *ngIf="phone.invalid && (phone.dirty || phone.touched)"
+          class="alert alert-danger"
+        >
+          <div *ngIf="phone.errors?.required">Phone is required</div>
+        </div>
+
+        <div class="form-group">
+          <label for="work">Gender</label>
+          <input
+            type="work"
+            class="form-control"
+            [(ngModel)]="formData.work"
+            name="work"
+            #work="ngModel"
+            required
+          />
+        </div>
+        <div
+          *ngIf="work.invalid && (work.dirty || work.touched)"
+          class="alert alert-danger"
+        >
+          <div *ngIf="work.errors?.required">Work is required</div>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            [(ngModel)]="formData.password"
+            #password="ngModel"
+            name="password"
+            required
+          />
+        </div>
+        <div
+          *ngIf="password.invalid && (password.dirty || password.touched)"
+          class="alert alert-danger"
+        >
+          <div *ngIf="password.errors?.required">Password is required</div>
+        </div>
+
+        <div class="form-group">
+          <label for="passwordConfirmation">Confirm Password</label>
+          <input
+            type="password"
+            class="form-control"
+            [(ngModel)]="formData.passwordConfirmation"
+            #passwordConfirmation="ngModel"
+            name="passwordConfirmation"
+            required
+          />
+        </div>
+        <div
+          *ngIf="
+            passwordConfirmation.invalid &&
+            (passwordConfirmation.dirty || passwordConfirmation.touched)
+          "
+          class="alert alert-danger"
+        >
+          <div *ngIf="passwordConfirmation.errors?.required">
+            Confirm Password is required
+          </div>
+        </div>
+        <button
+          (click)="register()"
+          type="submit"
+          class="btn btn-warning"
+          [disabled]="!registerForm.form.valid"
+        >
+          Register
+        </button>
+        <br/>
+        <button class="btn btn-block google-sign-in" (click)="signInWithGoogle()">
+          <img [src]="'assets/images/google.svg'" alt="google"/>
+          <span>Continue with Google</span>
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+

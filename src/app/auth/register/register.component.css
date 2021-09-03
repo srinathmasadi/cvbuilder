@@ -1,0 +1,15 @@
+body{
+    background: linear-gradient(
+        45deg
+        , #2ab2e6, #7d8e3e);
+}
+.google-sign-in{
+    background-color: white;
+    border: 1px solid #D8DDEC;
+    padding: 10px 30px;
+    text-align: center;
+    font-weight: bold;
+    height: 100%;
+
+
+}

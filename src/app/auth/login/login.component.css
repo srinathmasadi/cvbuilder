@@ -13,4 +13,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+ body{
+    background: linear-gradient(
+        45deg
+        , #2ab2e6, #7d8e3e);
+ }
 

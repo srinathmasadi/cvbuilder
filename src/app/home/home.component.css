@@ -1,0 +1,8 @@
+.marge {
+  margin-top: 1%
+}
+body{
+  background: linear-gradient(
+      45deg
+      , #2ab2e6, #7d8e3e);
+}

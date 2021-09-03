@@ -1,0 +1,6 @@
+.pointer {
+  cursor: pointer;
+}
+.navbar-brand:hover{
+  opacity: 500;
+}

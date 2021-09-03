@@ -1,0 +1,53 @@
+<body><div class="container">
+  <h3 class="mt-5">Profile</h3>
+  <hr />
+
+  <ng-container *ngIf="auth.isAuthenticated()">
+    <button routerLink="/auth/update" class="nav-link"> Edit Profile </button>
+  </ng-container>
+
+  <br /><br />
+
+  <div class="row">
+    <div class="col-md-4">
+      <img
+        src="../../assets/images/dummy-profile-pic.jpg"
+        alt="Profile"
+        width="50%"
+      />
+      <br />
+    </div>
+<div class="col-md-7">
+    <table class="table-bordered">
+      <thead>
+          <tr>
+              <th colspan="2" class="text-center">User Profile</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td><strong>First Name</strong></td>
+              <td>{{  auth.getUserFirstName() }}</td>
+          </tr>
+          <tr>
+              <td><strong>Last Name</strong></td>
+              <td>{{ auth.getUserLastName() }}</td>
+          </tr>
+          <tr>
+              <td><strong>Email</strong></td>
+              <td>{{ auth.getUserEmail() }}</td>
+          </tr>
+          <tr>
+            <td><strong>Phone</strong></td>
+            <td>{{ auth.getUserPhone() }}</td>
+        </tr>
+        <tr>
+          <td><strong>Gender</strong></td>
+          <td>{{ auth.getUserWork() }}</td>
+      </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>
+</body>

@@ -1,0 +1,49 @@
+
+<head>
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+background:linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8));}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+</style>
+</head>
+
+
+<ul>
+  <li><a class="nav-link active" href="/">Home</a></li>
+
+  <ng-container *ngIf="!auth.isAuthenticated()">
+   <li><a href="/auth/register">SignUp</a></li>
+  <li><a href="/auth/login">Login</a></li>
+
+  </ng-container>
+
+  <ng-container *ngIf="auth.isAuthenticated()">
+  <li><a href="/profile">Profile</a></li>
+  <li><a (click)="logout()">Logout</a></li>
+  <li><a href="/resume-builder">Resume</a></li>
+  <li><a href="/preview">Preview</a></li>
+  <li><a href="/resume-builder">Edit-Resume</a></li>
+</ng-container>
+</ul>
+
+
+
