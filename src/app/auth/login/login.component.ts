@@ -10,7 +10,12 @@ import { GoogleLoginProvider, SocialAuthService, SocialUser } from 'angularx-soc
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+ 
+    socialData: any = {
+        email:'',
+        password:'',
+           
+    };
   loginForm!: FormGroup;
   errors: any = [];
   notify!: string;
@@ -55,6 +60,31 @@ export class LoginComponent implements OnInit {
           this.errors.push(errorResponse.error.error);
         });
   }
-
+  signInWithGoogle(): void {
+    this.socialauth.signIn(GoogleLoginProvider.PROVIDER_ID)
+    .then((data)=>{
+      console.log(data);
+      this.socialData.email=data.email;
+      this.socialData.password=data.id;
+     
+    })
+    .then(()=>{
+      this.auth.login(this.socialData).subscribe(
+        (res)=>{
+          let token = JSON.parse(JSON.stringify(res));
+          localStorage.setItem('token',token.token);
+          this.router.navigate(['/profile'], { queryParams: { registered: 'success' } });
+        },
+        (err)=>{
+          if(err.error=='Email already exists'){
+            alert('Email already exists');
+          }
+          else{
+            console.error(err);
+          }
+        }
+      )
+     })
+  }
   
 }
