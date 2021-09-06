@@ -30,11 +30,6 @@ export class LoginComponent implements OnInit {
       }
     });
   }
-  user!:SocialUser;
-  loggedIn!:boolean;
-
-  
-
   
 
   initForm(): void {
@@ -54,10 +49,12 @@ export class LoginComponent implements OnInit {
     this.errors = [];
     this.auth.login(this.loginForm.value)
       .subscribe((token) => {
-        this.router.navigate(['/'], { queryParams: { loggedin: 'success' } });
+        this.router.navigate(['/profile'], { queryParams: { loggedin: 'success' } });
        },
         (errorResponse) => {
           this.errors.push(errorResponse.error.error);
         });
   }
+
+  
 }

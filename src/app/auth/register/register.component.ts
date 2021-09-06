@@ -10,12 +10,17 @@ import { GoogleLoginProvider, SocialAuthService, SocialUser } from 'angularx-soc
 })
 export class RegisterComponent implements OnInit {
   socialData: any = {
-    name:'',
-    email:'',
-    id:''
+    firstName:'',
+     lastName:'',
+      email:'',
+      phone:'',
+       work:'',
+        password:'',
+         passwordConfirmation:''
   };
   formData: any = {};
   errors: any = [];
+  notify!: string;
 
   constructor(private auth: AuthService, private router: Router, private socialauth:SocialAuthService) { }
 
@@ -38,9 +43,11 @@ export class RegisterComponent implements OnInit {
     .then((data)=>{
       console.log(data);
       
+      this.socialData.firstName=data.firstName;
+      this.socialData.lastName=data.lastName;
       this.socialData.email=data.email;
-      this.socialData.username=data.name;
       this.socialData.password=data.id;
+      this.socialData.passwordConfirmation=data.id;
     })
     .then(()=>{
       this.auth.register(this.socialData).subscribe(
