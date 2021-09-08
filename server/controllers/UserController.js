@@ -2,6 +2,9 @@ const User = require('../models/User')
 const Resume = require('../models/resume')
 const env = require('../DB')
 const jwt = require('jsonwebtoken')
+const passwordResetToken = require('../models/resettoken');
+
+
 
 exports.register = function (req, res) {
   const { firstName, lastName, email, phone, work, password, passwordConfirmation } = req.body
@@ -188,3 +191,5 @@ exports.resumebuilder = function (req, res) {
     }
   })
  }
+
+ 

@@ -16,6 +16,7 @@ export class ResumeBuilderComponent implements OnInit {
     mobile: new FormControl(''),
     address: new FormControl(''),
     skills: new FormControl(''),
+    profile: new FormControl(''),
     linkedin: new FormControl(''),
     facebook: new FormControl(''),
     instagram: new FormControl(''),
@@ -33,6 +34,7 @@ export class ResumeBuilderComponent implements OnInit {
     this._resumeService.getResumeData().subscribe(
       (res) => {
         const exp = JSON.parse(JSON.stringify(res)).experience;
+        console.log(exp.length);
         for (let i = 0; i < exp.length - 1; i++) {
           this.onAddExperience();
         }
@@ -51,6 +53,7 @@ export class ResumeBuilderComponent implements OnInit {
         for (let i = 0; i < edu.length - 1; i++) {
           this.onAddEducation();
         }
+
         this.resumeForm.patchValue({
           fullname: JSON.parse(JSON.stringify(res)).fullname,
           position: JSON.parse(JSON.stringify(res)).position,
@@ -58,6 +61,7 @@ export class ResumeBuilderComponent implements OnInit {
           mobile: JSON.parse(JSON.stringify(res)).mobile,
           address: JSON.parse(JSON.stringify(res)).address,
           skills: JSON.parse(JSON.stringify(res)).skills,
+          profile: JSON.parse(JSON.stringify(res)).profile,
           linkedin: JSON.parse(JSON.stringify(res)).linkedin,
           facebook: JSON.parse(JSON.stringify(res)).facebook,
           instagram: JSON.parse(JSON.stringify(res)).instagram,
@@ -72,6 +76,7 @@ export class ResumeBuilderComponent implements OnInit {
       (err) => console.error(err)
     );
   }
+
   get experienceControls() {
     return (<FormArray>this.resumeForm.get('experience')).controls;
   }
@@ -107,6 +112,31 @@ export class ResumeBuilderComponent implements OnInit {
     const control = new FormControl('');
     (<FormArray>this.resumeForm.get('education')).push(control);
   }
+
+  onRemoveExperience() {
+    (<FormArray>this.resumeForm.get('experience')).removeAt(
+      this.experienceControls.length - 1
+    );
+  }
+
+  onRemoveProject() {
+    (<FormArray>this.resumeForm.get('project')).removeAt(
+      this.projectControls.length - 1
+    );
+  }
+
+  onRemoveCertification() {
+    (<FormArray>this.resumeForm.get('certification')).removeAt(
+      this.certificationControls.length - 1
+    );
+  }
+
+  onRemoveEducation() {
+    (<FormArray>this.resumeForm.get('education')).removeAt(
+      this.educationControls.length - 1
+    );
+  }
+
   generateResume() {
     // console.log(this.resumeForm.value);
     this._resumeService.setResumeData(this.resumeForm.value).subscribe(

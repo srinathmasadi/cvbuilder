@@ -65,9 +65,10 @@
                     <textarea [formControlName]="i" rows="2" class="form-control mt-2" placeholder="Write your experience"></textarea>
                 </ng-container>
                 <div class="container text-center">
-                    <button type="button" (click)="onAddExperience()" class="btn btn-success btn-sm">
-            Add Experience
-          </button>
+                    <img (click)="onAddExperience()" src="https://img.icons8.com/ios-glyphs/30/000000/add--v1.png"/>
+                    
+          <img (click)="onRemoveExperience()" src="https://img.icons8.com/ios-glyphs/25/000000/filled-trash.png"/>
+           
                 </div>
             </div>
             <div class="form-group mt-2" formArrayName="project">
@@ -76,9 +77,8 @@
                     <textarea [formControlName]="i" rows="3" class="form-control mt-2" placeholder="Write your project"></textarea>
                 </ng-container>
                 <div class="container text-center">
-                    <button type="button" (click)="onAddProject()" class="btn btn-success btn-sm">
-            Add Project
-          </button>
+                    <img (click)="onAddProject()" src="https://img.icons8.com/ios-glyphs/30/000000/add--v1.png"/>
+          <img (click)="onRemoveProject()" src="https://img.icons8.com/ios-glyphs/25/000000/filled-trash.png"/>
                 </div>
             </div>
             <div class="form-group mt-2" formArrayName="certification">
@@ -88,9 +88,8 @@
                 </ng-container>
 
                 <div class="container text-center">
-                    <button type="button" (click)="onAddCertifiction()" class="btn btn-success btn-sm">
-            Add Certification
-          </button>
+                    <img (click)="onAddCertifiction()" src="https://img.icons8.com/ios-glyphs/30/000000/add--v1.png"/>
+          <img (click)="onRemoveCertification()" src="https://img.icons8.com/ios-glyphs/25/000000/filled-trash.png"/>
                 </div>
             </div>
             <div class="form-group mt-2" formArrayName="education">
@@ -100,9 +99,8 @@
                 </ng-container>
 
                 <div class="container text-center">
-                    <button type="button" (click)="onAddEducation()" class="btn btn-success btn-sm">
-            Add Education
-          </button>
+                    <img (click)="onAddEducation()" src="https://img.icons8.com/ios-glyphs/30/000000/add--v1.png"/>
+          <img (click)="onRemoveEducation()" src="https://img.icons8.com/ios-glyphs/25/000000/filled-trash.png"/>
                 </div>
             </div>
         </div>

@@ -15,10 +15,10 @@ const resumeSchema = new Schema({
     instagram: String,
     languages: String,
     objective: String,
-    experience: String,
-    project: String,
-    certification: String,
-    education: String,
+    experience: Array,
+    project: Array,
+    certification: Array,
+    education: Array,
 });
 
 module.exports = mongoose.model("resume", resumeSchema, "resumes");

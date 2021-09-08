@@ -28,8 +28,9 @@ export class PreviewResumeComponent implements OnInit {
   }
 
   download() {
+    console.log("hii");
     const resume: any = document.querySelector('#resume');
-    html2canvas(resume, { allowTaint: true, useCORS: true }).then((canvas:any) => {
+    html2canvas(resume, { allowTaint: true, useCORS: true }).then((canvas) => {
       const image = canvas.toDataURL('image/jpeg', 1.0);
       const doc = new jsPDF('p', 'px', 'a4');
       const pageWidth = doc.internal.pageSize.getWidth();
