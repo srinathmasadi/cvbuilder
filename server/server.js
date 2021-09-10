@@ -40,10 +40,10 @@ app.use('/api/users', userRoute);
 if(process.env.NODE_ENV =='production') {
   app.use(express.static("dist/angularjwtauth/"));
 }
-
-app.get('/', function (req, res) {
-  res.send('hello world')
-})
+app.use(express.static("dist/angularjwtauth/"));
+// app.get('/', function (req, res) {
+//   res.send('hello world')
+// })
 
 
 app.post("/resume", async(req, res) => {
