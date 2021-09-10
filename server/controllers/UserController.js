@@ -2,7 +2,7 @@ const User = require('../models/User')
 const Resume = require('../models/resume')
 const env = require('../DB')
 const jwt = require('jsonwebtoken')
-const passwordResetToken = require('../models/resettoken');
+
 
 
 
@@ -44,8 +44,6 @@ exports.register = function (req, res) {
 // Update ...........................
  exports.update = async (req, res) => {
   const { _id, email, firstName, lastName, phone, work } = req.body
-  // console.log(req.body);
-
   try {
     const result = await User.findOneAndUpdate({email: req.body.email}, {
 
@@ -118,7 +116,7 @@ exports.login = function (req, res) {
           work: user.work,
         },
         env.secret,
-        { expiresIn: '1h' })
+        { expiresIn: '15m' })
 
       return res.json(json_token)
     }
@@ -162,7 +160,6 @@ exports.authMiddleware = function (req, res, next) {
 function parseToken(token) {
   return jwt.verify(token.split(' ')[1], env.secret)
 }
-
 
 
 exports.resumebuilder = function (req, res) {

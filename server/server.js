@@ -29,14 +29,14 @@ app.use(bodyParser.json());
 
 let corsOptions = {
   origin: 'http://localhost:4200',
-  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+  optionsSuccessStatus: 200
 }
 
 
 app.use(cors(corsOptions))
 app.use('/api/users', userRoute);
 
-// app.use(express.static("/dist/angularjwtauth/"));
+
 if(process.env.NODE_ENV =='production') {
   app.use(express.static("dist/angularjwtauth/"));
 }
@@ -79,12 +79,10 @@ app.post("/resume", async(req, res) => {
   }
 
   let resume = new Resume(resumeData);
-
   resume.save((error, savedResume) => {
       if (error) {
           res.status(401).send(err);
       } else {
-          // console.log(savedResume);
           res.status(200).send({ message: "success" });
       }
   });

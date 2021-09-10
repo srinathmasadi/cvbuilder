@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import {ResumeService} from '../../resume.service'
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup,FormArray } from '@angular/forms';
+import { FormControl, FormGroup,FormArray, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-resume-form',
@@ -9,11 +9,13 @@ import { FormControl, FormGroup,FormArray } from '@angular/forms';
   styleUrls: ['./resume-builder.component.css'],
 })
 export class ResumeBuilderComponent implements OnInit {
+  
   resumeForm = new FormGroup({
-    fullname: new FormControl(''),
+    
+    fullname: new FormControl('',Validators.required),
     position: new FormControl(''),
-    email: new FormControl(''),
-    mobile: new FormControl(''),
+    email: new FormControl('',[Validators.required, Validators.email]),
+    mobile: new FormControl('',[Validators.required]),
     address: new FormControl(''),
     skills: new FormControl(''),
     profile: new FormControl(''),
@@ -26,7 +28,8 @@ export class ResumeBuilderComponent implements OnInit {
     project: new FormArray([new FormControl('')]),
     certification: new FormArray([new FormControl('')]),
     education: new FormArray([new FormControl('')]),
-  });
+  },{updateOn:"submit"});
+  submitted = false;
 
   constructor(private _resumeService: ResumeService, private _router: Router) {}
 
@@ -139,6 +142,7 @@ export class ResumeBuilderComponent implements OnInit {
 
   generateResume() {
     // console.log(this.resumeForm.value);
+    this.submitted = true;
     this._resumeService.setResumeData(this.resumeForm.value).subscribe(
       (res) => {
         console.log(res);
@@ -147,4 +151,7 @@ export class ResumeBuilderComponent implements OnInit {
       (err) => console.error(err)
     );
   }
+
+  get f() { return this.resumeForm.controls; }
+
 }

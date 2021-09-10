@@ -12,7 +12,8 @@ import { LoginComponent } from './login/login.component';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
 import { UpdateComponent } from './update/update.component';
-
+import { ResumeBuilderComponent } from './resume-builder/resume-builder.component';
+import { PreviewResumeComponent } from './preview-resume/preview-resume.component';
 const routes: Routes = [
   {
     path: 'auth',
@@ -21,6 +22,8 @@ const routes: Routes = [
       { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
       { path: 'register', component: RegisterComponent, canActivate: [AuthGuard] },
       { path: 'update', component: UpdateComponent, canActivate: [AuthGuard] },
+      {path: 'resume-builder', component: ResumeBuilderComponent, canActivate: [AuthGuard]},
+      {path: 'preview', component: PreviewResumeComponent, canActivate: [AuthGuard]}
      
     ]
   }
