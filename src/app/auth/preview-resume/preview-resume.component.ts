@@ -18,17 +18,16 @@ export class PreviewResumeComponent implements OnInit {
         this.resumeData = res;
         this.resumeData.skills = this.resumeData.skills.split(',');
         this.resumeData.languages = this.resumeData.languages.split(',');
-        this.resumeData.experience = this.resumeData.experience.split('|');
-        this.resumeData.project = this.resumeData.project.split('|');
-        this.resumeData.certification =this.resumeData.certification.split('|');
-        this.resumeData.education = this.resumeData.education.split('|');
+        this.resumeData.experience = this.resumeData.experience;
+        this.resumeData.project = this.resumeData.project;
+        this.resumeData.certification =this.resumeData.certification;
+        this.resumeData.education = this.resumeData.education;
       },
       (err) => console.error(err)
     );
   }
 
   download() {
-    console.log("hii");
     const resume: any = document.querySelector('#resume');
     html2canvas(resume, { allowTaint: true, useCORS: true }).then((canvas) => {
       const image = canvas.toDataURL('image/jpeg', 1.0);

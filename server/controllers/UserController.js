@@ -1,5 +1,4 @@
 const User = require('../models/User')
-const Resume = require('../models/resume')
 const env = require('../DB')
 const jwt = require('jsonwebtoken')
 
@@ -58,7 +57,7 @@ exports.register = function (req, res) {
       useFindAndModify: false
     })
 
-    //console.log(result);
+  
     if (result) {
       json_token = jwt.sign(
         {
@@ -162,31 +161,7 @@ function parseToken(token) {
 }
 
 
-exports.resumebuilder = function (req, res) {
-  const {  course, school, grade, startDate,endDate,title,company, location,startDateE,endDateE,description } = req.body
-  
-  Resume.findOne({ email }, function (err, resumeExistingUser) {
-    if (err) {
-      return res.status(422).json({ 'error': 'Oops! Something went Wrong' })
-    }
-    if (resumeExistingUser) {
-      return res.status(422).json({ 'error': 'User already exists' })
-    }
-    else {
-      const ruser = new Resume({
-        course, school, grade, startDate,endDate,title,company, location,startDateE,endDateE,description
-      })
 
-      user.save(function (err) {
-        if (err) {
-          return res.status(422).json({
-            'error': 'Oops! Something went wrong'
-          })
-        }
-        return res.status(200).json({ 'resumeregistered': true })
-      })
-    }
-  })
- }
+
 
  

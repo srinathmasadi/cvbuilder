@@ -21,4 +21,4 @@ const resumeSchema = new Schema({
     education: Array,
 });
 
-module.exports = mongoose.model("resume", resumeSchema, "resumes");
+module.exports = mongoose.model("resume", resumeSchema);
