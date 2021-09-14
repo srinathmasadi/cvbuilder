@@ -16,9 +16,9 @@ router.get('/profile', authMiddleware, function (req, res) {
   res.json({ 'access': true })
 })
 
-router.post('/resume', resume.resumebuilder)
+// router.post('/resume', resume.resumebuilder)
 
-router.get('/template', authMiddlewareR, function (req, res) {
+router.get('/template', function (req, res) {
   res.json({ 'access': true })
 })
 
