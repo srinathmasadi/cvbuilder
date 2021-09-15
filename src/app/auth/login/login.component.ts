@@ -77,7 +77,7 @@ export class LoginComponent implements OnInit {
         },
         (err)=>{
           if(err.error=='Email already exists'){
-            alert('Email already exists');
+            alert('Email already exists..');
           }
           else{
             console.error(err);
