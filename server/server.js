@@ -34,13 +34,14 @@ let corsOptions = {
 
 
 app.use(cors(corsOptions))
+app.use(express.static("dist/angularjwtauth"));
 app.use('/api/users', userRoute);
 
 
-if(process.env.NODE_ENV =='production') {
-  app.use(express.static("dist/angularjwtauth/"));
-}
-app.use(express.static("dist/angularjwtauth/"));
+// if(process.env.NODE_ENV =='production') {
+
+// }
+
 // app.get('/', function (req, res) {
 //   res.send('hello world')
 // })
@@ -97,6 +98,10 @@ app.get("/template",  (req, res) => {
       }
   });
 });
+
+app.get("*", (req, res)=>{
+  res.sendFile(__dirname + "/dist/angularjwtauth/index.html")
+})
 
 
 app.listen(PORT, () => {
