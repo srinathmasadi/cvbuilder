@@ -2,16 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { ResumeService } from 'src/app/resume.service';
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
-import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-preview-resume',
-  templateUrl: './preview-resume.component.html',
-  styleUrls: ['./preview-resume.component.css']
+  selector: 'app-theme1',
+  templateUrl: './theme1.component.html',
+  styleUrls: ['./theme1.component.css']
 })
-export class PreviewResumeComponent implements OnInit {
-    resumeData: any;
-  constructor(private _resumeService: ResumeService, private _router: Router) { }
+
+
+export class Theme1Component implements OnInit {
+
+  resumeData: any;
+  constructor(private _resumeService: ResumeService) { }
 
   ngOnInit(): void {
     this._resumeService.getResumeData().subscribe(
@@ -50,15 +52,6 @@ export class PreviewResumeComponent implements OnInit {
       doc.save('Resume.pdf');
     });
   }
-  t1(){
-    this._router.navigate(['/theme1'])
-  }
-  t2(){
-    this._router.navigate(['/theme2'])
-  }
-  t3(){
-    this._router.navigate(['/theme3'])
-  }
 
-  }
 
+}

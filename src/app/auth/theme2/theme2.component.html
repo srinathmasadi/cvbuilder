@@ -1,0 +1,81 @@
+<!-- FONTS -->
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Raleway:100' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+
+<!-- PAGE STUFF -->
+<div class="rela-block page resume" id="resume">
+    <div class="rela-block top-bar">
+        <div class="caps name"><div class="abs-center">{{resumeData?.fullname}}</div></div>
+    </div>
+    <div class="side-bar">
+        <div class="mugshot">
+            <div class="logo">
+                <!-- <svg viewbox="0 0 80 80" class="rela-block logo-svg">
+                    <path d="M 10 10 L 52 10 L 72 30 L 72 70 L 30 70 L 10 50 Z" stroke-width="2.5" fill="none"/>
+                </svg> -->
+                <!-- <p class="logo-text">kj</p> -->
+                <div class="resume_profile">
+                  <img src="../../../assets/images/dummy-profile-pic.jpg" alt="profile_pic" height="300" width="250">
+                </div>
+            </div>
+        </div>
+        <p class="rela-block caps side-header">Address</p>
+       <p>{{resumeData?.address}}</p>
+        <p>{{resumeData?.email}}</p><br>
+        <p class="rela-block caps side-header">Social Links</p>
+
+        <p class="fab fa-linkedin">{{resumeData?.linkedin}}</p>
+        <p class="fab fa-github">{{resumeData?.instagram}}</p>
+        <p class="fab fa-facebook">{{resumeData?.facebook}}</p>
+        <p class="rela-block caps side-header">Skills</p>
+        <p>{{resumeData?.skills}}</p>
+        <p class="rela-block caps side-header">Education</p>
+        <div class="card-body">
+          <ul>
+              <li *ngFor="let edu of resumeData?.education">
+                  {{ edu }} <br />
+                  <br />
+              </li>
+          </ul>
+      </div>
+    
+  
+    </div>
+    <div class="rela-block content-container">
+        <h2 class="rela-block caps title">{{resumeData?.position}}</h2>
+        <div class="rela-block separator"></div>
+        <div class="rela-block caps greyed">ABout Me</div>
+        <p class="long-margin">{{resumeData?.objective}} </p>
+        <p class="rela-block caps side-header">Projects</p>
+        <div class="card-body">
+          <ul>
+              <li *ngFor="let pro of resumeData?.project">
+                  {{ pro }} <br />
+                  <br />
+              </li>
+          </ul>
+      </div>
+      
+      
+    <div class="rela-block caps greyed">Certifications</div>
+    <div class="card-body">
+      <ul>
+          <li *ngFor="let cer of resumeData?.certification">
+              {{ cer }} <br />
+              <br />
+          </li>
+      </ul>
+  </div>
+  
+  <div class="rela-block caps greyed">Experience</div>
+  <div class="card-body">
+    <ul>
+        <li *ngFor="let exp of resumeData?.experience">
+            {{ exp }} <br />
+            <br />
+        </li>
+    </ul>
+</div>
+    </div>
+</div>

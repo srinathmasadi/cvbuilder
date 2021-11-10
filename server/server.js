@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-// const Resumedb = require("./models/resume"); 
+
 
 const Resume = require("./models/resume");
 
@@ -37,14 +37,6 @@ app.use(cors(corsOptions))
 app.use(express.static("dist/angularjwtauth"));
 app.use('/api/users', userRoute);
 
-
-// if(process.env.NODE_ENV =='production') {
-
-// }
-
-// app.get('/', function (req, res) {
-//   res.send('hello world')
-// })
 
 
 app.post("/resume", async(req, res) => {

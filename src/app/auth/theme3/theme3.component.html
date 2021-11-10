@@ -1,0 +1,189 @@
+<body>
+    <div  id="resume">
+     <div class="resume-wrapper" >
+       <article class="paper">
+         <header>
+           <div class="header-content" >
+             <div class="header-pic" title="Wiggle Wiggle">
+               <div class="pic"></div>
+             </div>
+             <div class="header-text">
+               <p>
+                 <span class="first-name">{{resumeData.fullname}}</span>
+                 
+               </p>
+               <p class="subtitle">{{resumeData.position}}</p>
+             </div>
+           </div>
+         </header>
+         
+         <div class="content-wrapper">
+         
+           <section class="content">
+             <div class="row">
+               <div class="content-cat">
+                Contact
+               </div>
+               <div class="content-text">
+                 <ul>
+                   <li>Mobile No</li>
+                   <li>{{resumeData.mobile}}</li>
+                 </ul>
+                 <ul>
+                   <li>Email</li>
+                   <li>{{resumeData.email}}</li>
+                 </ul>
+                
+               </div>
+             </div>
+           </section>
+     
+           <section class="content">
+             <div class="row">
+               <div class="content-cat">
+                Location
+               </div>
+               <div class="content-text">
+                <ul>{{resumeData.address}}</ul>
+               </div>
+             </div>
+           </section>
+   
+           <section class="content">
+             <div class="row">
+               <div class="content-cat">
+                Skills
+               </div>
+               <div class="content-text">  
+ <ul>
+   {{resumeData.skills}}
+ 
+ </ul>              </div>
+             </div>
+           </section>
+     
+           <section class="content">
+             <div class="row">
+               <div class="content-cat">
+                Social Links
+               </div>
+               <div class="content-text">
+                 <ul>
+                   <li>Linkedin</li>
+                   <li>
+                     <a href="#" target="_blank">{{resumeData.linkedin}}</a>
+                   </li>
+                 </ul>
+                 <ul>
+                   <li>Facebook</li>
+                   <li>
+                     <a href="#" target="_blank">{{resumeData.facebook}}</a>
+                   </li>
+                 </ul>
+                 <ul>
+                   <li>Github</li>
+                   <li>
+                     <a href="https://github.com/TimDaub" target="_blank">{{resumeData.instagram}}</a>
+                   </li>
+                 </ul>
+               </div>
+             </div>
+           </section>
+     
+           <section class="content">
+             <div class="row">
+               <div class="content-cat big-text">
+                Objective
+                 <p>About Me</p>
+               </div>
+               <div class="content-text work-listing">
+               <p>{{resumeData.objective}}</p>  
+               </div>
+             </div>
+           </section>
+        
+           <section class="content">
+             <div class="row">
+               <div class="content-cat big-text">
+                Experience
+               </div>
+               <div class="content-text work-listing">
+                 <div class="card-body">
+                   <ul>
+                       <li *ngFor="let exp of resumeData.experience">
+                           {{ exp }} <br />
+                           <br />
+                       </li>
+                   </ul>
+               </div>
+                               </div>
+             </div>
+           </section>
+               <section class="content">
+                 <div class="row">
+                   <div class="content-cat big-text">
+                    Education
+                   </div>
+                   <div class="content-text work-listing">
+                     <div class="card-body">
+                       <ul>
+                           <li *ngFor="let edu of resumeData.education">
+                               {{ edu }} <br />
+                               <br />
+                           </li>
+                       </ul>
+                   </div>
+                                   </div>
+                 </div>
+               </section>
+     
+           <section class="content">
+             <div class="row">
+               <div class="content-cat">
+                 Projects
+               
+               </div>
+               <div class="content-text work-listing education-listing">
+                 <div class="card-body">
+                   <ul>
+                       <li *ngFor="let pro of resumeData.project">
+                           {{ pro }} <br />
+                           <br />
+                       </li>
+                   </ul>
+                    
+               </div>
+           
+               </div>
+             </div>
+           </section>
+     
+           <section class="content">
+             <div class="row">
+               <div class="content-cat big-text">
+                 Certifications
+               </div>
+               <div class="content-text work-listing education-listing">
+                 <div class="card-body">
+                   <ul>
+                       <li *ngFor="let cer of resumeData.certification">
+                           {{ cer }} <br />
+                           <br />
+                       </li>
+                   </ul>
+               </div>
+             
+               </div>
+             </div>
+           </section>      
+         
+         </div>
+           
+       </article>
+          
+       
+     </div>
+    </div>
+    <div class="container text-center mb-2">
+     <button (click)="download()" class="btn btn-primary btn-lg">Download</button>
+     <div> 

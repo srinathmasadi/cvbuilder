@@ -1,17 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { ResumeService } from 'src/app/resume.service';
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
+import { ResumeService } from 'src/app/resume.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-preview-resume',
-  templateUrl: './preview-resume.component.html',
-  styleUrls: ['./preview-resume.component.css']
+  selector: 'app-theme2',
+  templateUrl: './theme2.component.html',
+  styleUrls: ['./theme2.component.css']
 })
-export class PreviewResumeComponent implements OnInit {
-    resumeData: any;
-  constructor(private _resumeService: ResumeService, private _router: Router) { }
+export class Theme2Component implements OnInit {
+  resumeData: any;
+
+  constructor(private _resumeService: ResumeService , private _router: Router) { }
 
   ngOnInit(): void {
     this._resumeService.getResumeData().subscribe(
@@ -27,7 +28,6 @@ export class PreviewResumeComponent implements OnInit {
       (err) => console.error(err)
     );
   }
-
   download() {
     const resume: any = document.querySelector('#resume');
     html2canvas(resume, { allowTaint: true, useCORS: true }).then((canvas) => {
@@ -50,15 +50,5 @@ export class PreviewResumeComponent implements OnInit {
       doc.save('Resume.pdf');
     });
   }
-  t1(){
-    this._router.navigate(['/theme1'])
-  }
-  t2(){
-    this._router.navigate(['/theme2'])
-  }
-  t3(){
-    this._router.navigate(['/theme3'])
-  }
 
-  }
-
+}
